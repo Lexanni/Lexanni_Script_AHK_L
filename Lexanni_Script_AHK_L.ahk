@@ -433,8 +433,10 @@ RWin Up::SendEvent, {Delete Up}
 Down Up::SendEvent, {RCtrl Up}
 
 *vk42::             ; модификатор для "первого" символьного слоя (клавиша И)
+*vk33::
     SLOn := true
     KeyWait, vk42
+    KeyWait, vk33
     SLOn := false
 return
 

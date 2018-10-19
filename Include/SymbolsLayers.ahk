@@ -3,7 +3,7 @@
 #If (A_PriorHotkey = "*CapsLock") or (A_PriorHotkey = "*vkDE") or ShiftOn
     ;~ vk31::Send, {U+0025}      ; %
     ;~ vk32::Send, {U+2014}      ; 1 -> — (Em Dash)
-    vk33::Send, {U+0028}      ; (
+    ;~ vk33::Send, {U+0028}      ; (
     vk34::Send, {U+0029}   ; )
     ;~ vk33::Send, {U+0029}      ; )
     ;~ vk34::Send, {U+0028}   ; (
@@ -20,9 +20,9 @@
 #If
 
 ;------ "И" слой -------
-#If (A_PriorHotkey = "*vk42") or SLOn ; ((A_PriorHotkey = "*vk42") or (A_PriorHotkey = "*RShift"))
+#If (A_PriorHotkey = "*vk42" or A_PriorHotkey = "*vk33") or SLOn ; ((A_PriorHotkey = "*vk42") or (A_PriorHotkey = "*RShift"))
     ;~ vk32::Send, {U+2013}      ; 1 -> – (En Dash)
-    vk33::Send, {U+2116}      ; №
+    ;~ vk33::Send, {U+2116}      ; №
     vk34::Send, {U+0024}   ; $
     ;~ vk35::Send, {U+0025}   ; %
     vk59::Send, {U+0025}
@@ -160,7 +160,7 @@
     ;~ +vkC0::Send, {U+0025}      ; %
     ; vk31::Send, {U+0021}       ; !
     ;~ vk32::Send, {U+002D}       ;  1 -> - (Hyphen-Minus)
-    vk33::Send, {U+0022}       ; "
+    ;~ vk33::Send, {U+0022}       ; "
     vk34::Send, {U+002E}    ; .
     vk35::Send, {U+002C}    ; ,
     vk36::Send, {U+003F}    ; ?

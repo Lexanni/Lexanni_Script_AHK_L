@@ -42,11 +42,11 @@
     vkBE::Send, Ш
     vkBF::Send, Х
 #If
-#If (KState = 1) and A_PriorHotkey = "*vk42"
+;~ #If (KState = 1) and A_PriorHotkey = "*vk42"
     ;~ vk58::Send, {u+045e}    ; ў ; | X |
-    vk46::Send, {U+0451}    ; ё ; | F |
-    vk54::Send, {U+0401}    ; Ё ; | T |
-#If 
+    ;~ vk46::Send, {U+0451}    ; ё ; | F |
+    ;~ vk54::Send, {U+0401}    ; Ё ; | T |
+;~ #If 
 ;~ #If (KState = 1) and A_PriorHotkey = "*vk42"
 #If (KState = 1) and A_PriorHotkey = "vk50" ; П ВЛАЕЗ ; воу-воу, паринь палехче! :)
     vk4F::Send, к ; Г ВЛАЕЗ
