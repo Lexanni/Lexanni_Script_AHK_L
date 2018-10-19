@@ -1,7 +1,7 @@
 ﻿;---- Четвертый ряд ---
 
 #If (A_PriorHotkey = "*CapsLock") or (A_PriorHotkey = "*vkDE") or ShiftOn
-    vk31::Send, {U+0025}      ; %
+    ;vk31::Send, {U+0025}      ; %
     vk32::Send, {U+2014}      ; 1 -> — (Em Dash)
     vk33::Send, {U+0028}      ; (
     vk34::Send, {U+0029}   ; )
@@ -158,7 +158,7 @@
 ; | ` |
     ;~ vkC0::Send, {U+0021}       ; !    
     ;~ +vkC0::Send, {U+0025}      ; %
-    vk31::Send, {U+0021}       ; !
+    ; vk31::Send, {U+0021}       ; !
     vk32::Send, {U+002D}       ;  1 -> - (Hyphen-Minus)
     vk33::Send, {U+0022}       ; "
     vk34::Send, {U+002E}    ; .

@@ -349,7 +349,7 @@ If NumOn := !NumOn
     ;~ {
       ;~ Menu, Tray, Icon, ico\TgOn.ico
       ;~ Menu, Tray, Tip, Lexanni Script AutoHotkey_L `nСкрипт переназначающий клавиши `nTgOn
-    ;~ } 
+    ;~ 
   else
     {
       KState := 1
@@ -359,13 +359,21 @@ If NumOn := !NumOn
 }
 return
 
-;--------- Блок меню ---------------<
+;--------- Блок меню ---------------< 
 
 *RAlt::
     ;~ *vkDC::
     gosub, AltOnOff
     KeyWait, RAlt
     KeyWait, vkDC
+    gosub, AltOnOff
+return
+
+*vk31::
+    ;~ *vkDC::
+    gosub, AltOnOff
+    KeyWait, vk31
+    ; KeyWait, vkDC
     gosub, AltOnOff
 return
 
@@ -490,7 +498,6 @@ return
 */
 ;--------------------------------------------
 
-
 ; --------------------------------------------------- Includ'ы
 
 #Include SymbolsLayers.ahk
@@ -504,6 +511,7 @@ return
 ;~ #Include Typography.ahk
 #Include RightKeyLayer.ahk
 #Include LeftKeyLayer.ahk
+
 
 ; ----------------------------------------------------
 

@@ -369,6 +369,14 @@ return
     gosub, AltOnOff
 return
 
+*vk31::
+    ;~ *vkDC::
+    gosub, AltOnOff
+    KeyWait, vk31
+    ; KeyWait, vkDC
+    gosub, AltOnOff
+return
+
 ; SoundKey
 #If SoundKeyOn
     F11::Volume_Up
@@ -490,7 +498,6 @@ return
 */
 ;--------------------------------------------
 
-
 ; --------------------------------------------------- Includ'ы
 
 #Include SymbolsLayers.ahk
@@ -504,7 +511,6 @@ return
 ;~ #Include Typography.ahk
 #Include RightKeyLayer.ahk
 #Include LeftKeyLayer.ahk
-
 
 
 ; ----------------------------------------------------
