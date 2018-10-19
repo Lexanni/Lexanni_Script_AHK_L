@@ -1,0 +1,110 @@
+﻿; Partical Lexanni Script
+;----- Цифры -----
+
+#If NumAutoOff and NumOn
+    Space::
+    Send, {Space}
+    goto, AltOnOff
+    return
+    vk32::
+    Send, `-
+    goto, AltOnOff
+    return
+    ;~ vkBD:: ; клавиша -
+    ;~ Send, `-
+    ;~ goto, AltOnOff
+    ;~ return
+#If
+
+#If NumOn and not RightOn and not LeftOn
+   
+    vk43::Send, {U+0031} ; | C | -> 1
+    vk58::Send, {U+0032} ; | X | -> 2
+    vk5A::Send, {U+0033} ; | Z | -> 3
+    vk46::Send, {U+0034} ; | F | -> 4
+    vk44::Send, {U+0035} ; | D | -> 5
+    vk53::Send, {U+0036} ; | S | -> 6
+    vk54::Send, {U+0037} ; | T | -> 7
+    vk52::Send, {U+0038} ; | R | -> 8
+    vk45::Send, {U+0039} ; | E | -> 9
+    vk41::Send, {U+0030} ; | A | -> 0
+    
+        
+    ;~ vk47::
+    ;~ vk48::goto, AltOnOff
+    vk47::Send, {u+002b}  ; | G | -> +
+    vk48::Send, {u+002b}  ; | H | -> +
+    vk56::Send, {U+002d}  ; | V | -> -
+    vk4E::Send, {U+002d}  ; | N | -> -
+    vk59::Send, {U+00b7}  ; | Y | -> ·
+
+    vk4D::Send, {U+0031} ; | M | -> 1
+    vkBC::Send, {U+0032} ; | < | -> 2
+    vkBE::Send, {U+0033} ; | > | -> 3
+    vkBF::Send, {U+003d} ; | / | -> =
+    vk4A::Send, {U+0034} ; | J | -> 4
+    vk4B::Send, {U+0035} ; | K | -> 5
+    vk4C::Send, {U+0036} ; | L | -> 6
+    vk55::Send, {U+0037} ; | U | -> 7
+    vk49::Send, {U+0038} ; | I | -> 8 
+    vk4F::Send, {U+0039} ; | O | -> 9
+    vkBA::Send, {U+0030} ; | : | -> 0
+    vk50::Send, {U+003A} ; | P | -> :
+    vk51::Send, {Backspace}
+
+; ===== это была попытка сделать рисование рамок =====>>
+    ;~ vk4D::Send, {U+2507} ; | M | -> 1
+    ;~ vkBC::Send, {U+253b} ; | < | -> 2
+    ;~ vkBE::Send, {U+251b} ; | > | -> 3
+    ;~ vkBF::Send, {U+003d} ; | / | -> =
+    ;~ vk4A::Send, {U+2523} ; | J | -> 4
+    ;~ vk4B::Send, {U+254b} ; | K | -> 5
+    ;~ vk4C::Send, {U+252b} ; | L | -> 6
+    ;~ vk55::Send, {U+250f} ; | U | -> 7
+    ;~ vk49::Send, {U+2533} ; | I | -> 8 
+    ;~ vk4F::Send, {U+2513} ; | O | -> 9
+    ;~ vkBA::Send, {U+2501} ; | : | -> 0
+    ;~ vk50::Send, {U+2503} ; | P | -> :
+    ;~ vk51::Send, {Backspace}
+; ===================================================<<
+    ;~ vk38::Send, {U+003b} ; | 8 | -> ;
+    F1::Send, {u+1f600}
+    F11::Reload
+   
+#If
+
+;~ #If TankModeOn
+
+    ;~ >^vk43::F1 ; | C | -> 1
+    ;~ >^vk58::F2 ; | X | -> 2
+    ;~ >^vk5A::F3 ; | Z | -> 3
+    ;~ >^vk46::F4 ; | F | -> 4
+    ;~ >^vk44::F5 ; | D | -> 5
+    ;~ >^vk53::f6 ; | S | -> 6
+    ;~ >^vk54::f7 ; | T | -> 7
+    ;~ >^vk52::f8 ; | R | -> 8
+    ;~ >^vk45::f9 ; | E | -> 9
+    ;~ >^vk41::f10 ; | A | -> 0
+
+;~ #If
+;----------------
+/*
+;----- Цифры (старые) -----
+#If NumON
+    vk41::Send, {U+0031} ; A -> 1
+    vk53::Send, {U+0032} ; S -> 2
+    vk44::Send, {U+0033} ; D -> 3
+    vk46::Send, {U+0034} ; F -> 4
+    vk56::Send, {U+0035} ; V -> 5
+    vk4E::Send, {U+0036} ; N -> 6
+    vk4A::Send, {U+0037} ; J -> 7
+    vk4B::Send, {U+0038} ; K -> 8
+    vk4C::Send, {U+0039} ; L -> 9
+    vkBA::Send, {U+0030} ; ; -> 0
+    vkBC::Send, {U+002C} ; , -> ,
+    vkBE::Send, {U+002E} ; . -> .
+    vk58::Send, {U+002E} ; X -> .
+    vk43::Send, {U+002C} ; C -> ,
+#If
+;-----------------
+*/

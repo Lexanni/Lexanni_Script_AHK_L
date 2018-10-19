@@ -1,0 +1,2 @@
+;~ #InstallKeybdHook
+LAlt up::return
