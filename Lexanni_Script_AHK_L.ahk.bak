@@ -64,6 +64,7 @@ KState:
 4 — StickyOff, Ru
 5 — StickyOff, En
 6 — StickyOff, NumOn
+7 – Navigation
 */
 
 if StartSuspended
@@ -369,13 +370,20 @@ return
     gosub, AltOnOff
 return
 
-*vk31::
+*vk32::
     ;~ *vkDC::
     gosub, AltOnOff
-    KeyWait, vk31
+    KeyWait, vk32
     ; KeyWait, vkDC
     gosub, AltOnOff
 return
+
+*vk31::
+    tmp := KState
+    KState := 7
+    KeyWait, vk31
+    KState := tmp
+return 
 
 ; SoundKey
 #If SoundKeyOn
@@ -511,6 +519,7 @@ return
 ;~ #Include Typography.ahk
 #Include RightKeyLayer.ahk
 #Include LeftKeyLayer.ahk
+#Include NavigationLayer.ahk
 
 
 ; ----------------------------------------------------
