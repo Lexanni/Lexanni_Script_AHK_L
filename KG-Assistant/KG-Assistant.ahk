@@ -124,7 +124,7 @@ return
 ReloadScript:
 F5::
 	Suspend, Permit
-	Reload 
+	Reload
 return
 
 #IfWinActive, .*Клавогонки - онлайновый клавиатурный тренажер-игра - (Google Chrome)|(Comodo Dragon)|(Chromium) ; ahk_class Chrome_WidgetWin_1
@@ -145,7 +145,7 @@ return
 		;~ Sleep, 200
 		Send, {Enter}
 		WinWait, Закладка ahk_class Chrome_WidgetWin_1,, 2
-		if ErrorLevel 
+		if ErrorLevel
 		{
 			ToolTip, Что-то пошло не так… :(
 			Sleep, 3500
@@ -161,7 +161,7 @@ return
 
 #IfWinActive, .*Клавогонки - онлайновый клавиатурный тренажер-игра - Mozilla Firefox ; ahk_class MozillaWindowClass
 	F3::
-		if (r = 9) 
+		if (r = 9)
 		{
 			Send, {F6}
 			gosub, ExtractVocID
@@ -173,7 +173,7 @@ return
 	F4::
 		Send, {AppsKey}{Up}{Enter}
 		WinWait, Свойства для.* ahk_class MozillaDialogClass,, 2
-		if ErrorLevel 
+		if ErrorLevel
 		{
 			ToolTip, Что-то пошло не так… :(
 			Sleep, 3500
@@ -189,7 +189,7 @@ return
 
 #IfWinActive, .*Клавогонки - онлайновый клавиатурный тренажер-игра - Opera ; ahk_class OperaWindowClass
 	F3::
-		if (r = 9) 
+		if (r = 9)
 		{
 			Send, {F8}
 			gosub, ExtractVocID
@@ -202,7 +202,7 @@ return
 	F4 & F1::
 		Send, % (A_ThisHotkey = "F4") ? "{RButton}{Up}{Enter}" : "{RButton}{Down 7}{Enter}"
 		WinWait, (Свойства|Добавление) закладки ahk_class OperaWindowClass,, 2
-		if ErrorLevel 
+		if ErrorLevel
 		{
 			ToolTip, Что-то пошло не так… :(
 			Sleep, 3500
@@ -211,7 +211,7 @@ return
 		}
 		gosub, ModifyBookmarkName
 		Send, {Tab 2}
-		if (A_ThisHotkey <> "F4") 
+		if (A_ThisHotkey <> "F4")
 		{
 			Send, {Tab}{Space}
 			Sleep, 100
@@ -231,7 +231,7 @@ ModifyBookmarkName:
 	Clipboard := ""
 	Send, ^{vk43}
 	ClipWait, 1
-	if ErrorLevel 
+	if ErrorLevel
 	{
 		ToolTip, Что-то пошло не так… :(
 		Sleep, 3500
@@ -254,7 +254,7 @@ ModifyBookmarkURL:
 	Clipboard := ""
 	Send, ^{vk43}
 	ClipWait, 1
-	if ErrorLevel 
+	if ErrorLevel
 	{
 		ToolTip, Что-то пошло не так… :(
 		Sleep, 3500
@@ -279,7 +279,7 @@ ExtractVocID:
 	Clipboard := ""
 	Send, ^{vk43}
 	ClipWait, 1
-	if ErrorLevel 
+	if ErrorLevel
 	{
 		ToolTip, Неудача…`nФокус НЕ должнен быть на адресной строке
 		Sleep, 3500

@@ -30,12 +30,12 @@
     vk38::Send, {u+002a}  ; *
     vk39::Send, {U+007b}  ; {
     vk30::Send, {U+007d}  ; }
-; | ] |   
-    vkDD::Send, {u+007e}   ; ~   
+; | ] |
+    vkDD::Send, {u+007e}   ; ~
 ; | - |
-    vkBD::Send, {U+005f}     ; _    
+    vkBD::Send, {U+005f}     ; _
 ; | = |
-    vkBB::Send, {u+002b}   ; + 
+    vkBB::Send, {u+002b}   ; +
 ; | Q |
     ;~ vk51::Send, {u+00a9}    ; ©
     vk51::Send, {u+002a}  ; *
@@ -52,27 +52,27 @@
 ; | E |
     vk45::Send, {u+003c}    ; <
 ; | R |
-    vk52::Send, {u+003e}    ; > 
+    vk52::Send, {u+003e}    ; >
 ; | U |
     ;~ vk55::Send, {u+0025}    ; %
     vk55::Send, {u+005e}    ; %
 ;~ ; | I |
     ;~ vk49::Send, {u+003c}    ; <
-;~ ; | O |    
-    ;~ vk4F::Send, {u+003e}    ; > 
+;~ ; | O |
+    ;~ vk4F::Send, {u+003e}    ; >
 ; | I |
     vk49::Send, {U+0028}   ; (
-; | O |    
+; | O |
     vk4F::Send, {U+0029}   ; )
-; | P |    
+; | P |
     vk50::Send, {u+0024}    ; $
 ; | [ |
     vkDB::Send, {u+0026}    ; &
-    
+
 ; | ] |
     ;~ vkDD::Send, {u+0000}    ; Заглушка!
-    
-    
+
+
 ;~ ; | А |
     ;~ vk41::Send, {u+00b0}    ; °
 ; | А |
@@ -97,7 +97,7 @@
     vk4B::Send, {u+005b}    ; [
 ; | L |
     vk4C::Send, {u+005d}    ; ]
-; | ; | 
+; | ; |
     vkBA::Send, {u+007d}    ; }
 ; | \ |
     vkDC::Send, {u+007c}   ; |
@@ -106,7 +106,7 @@
 ; | M |
     vk4D::Send, {u+0027}   ; '
 ; | , |
-    vkBC::Send, {u+005c}   ; \ 
+    vkBC::Send, {u+005c}   ; \
 ; | . |
     vkBE::Send, {u+002f}    ; /
 ; | / |
@@ -116,7 +116,7 @@
 ; | Z |
     ;~ vk5A::Send, {u+00b3}    ; ³
 ; | C |
-    vk43::Send, {u+002a}    ; * 
+    vk43::Send, {u+002a}    ; *
 ; | X |
     vk58::Send, {u+002f}   ; /
 ; | Z |
@@ -128,35 +128,35 @@
 ; | Z |
     ;~ vk5A::Send, {u+03b3}    ; γ
 ; LShift
-    LShift::Send, {u+002a}  ; * 
-    ;~ LShift::Send, {u+2229}  ; ∩ 
-    
+    LShift::Send, {u+002a}  ; *
+    ;~ LShift::Send, {u+2229}  ; ∩
+
 #If
 
 ;~ #If (A_PriorHotkey = "~Space")
     ;~ vk59::Send, {U+0022}
 ;~ #If
 
-#If FRaw    ; Тестовые переназначения для F-ряда
-    F1::return
-    F2::return
-    F3::Send, {u+0028} ; (
-    F4::Send, {u+0029} ; )
-    F5::Send, {u+003b} ; ;
-    F6::Send, {u+003a} ; :
-    F7::Send, {u+003a} ; :
-    F8::Send, {u+003b} ; ;
-    F9::Send, {u+0028} ; (
-    F10::Send, {u+0029} ; )
-    F11::return
+;~ #If FRaw    ; Тестовые переназначения для F-ряда
+    ;~ F1::return
+    ;~ F2::return
+    ;~ F3::Send, {u+0028} ; (
+    ;~ F4::Send, {u+0029} ; )
+    ;~ F5::Send, {u+003b} ; ;
+    ;~ F6::Send, {u+003a} ; :
+    ;~ F7::Send, {u+003a} ; :
+    ;~ F8::Send, {u+003b} ; ;
+    ;~ F9::Send, {u+0028} ; (
+    ;~ F10::Send, {u+0029} ; )
+    ;~ F11::return
 
-#If
+;~ #If
 
 
 ; Внимание! Важно, чтобы эта секция находилась здесь, внизу. Если будет выше — работать не будет.
-;~ #If StickyKeys 
+;~ #If StickyKeys
 ; | ` |
-    ;~ vkC0::Send, {U+0021}       ; !    
+    ;~ vkC0::Send, {U+0021}       ; !
     ;~ +vkC0::Send, {U+0025}      ; %
     ; vk31::Send, {U+0021}       ; !
     ;~ vk32::Send, {U+002D}       ;  1 -> - (Hyphen-Minus)
@@ -171,5 +171,5 @@
     vkDD::Send, {u+2026}    ; …
     vkBD::Send, {U+002D}    ; -
     vkBB::Send, {U+0021}    ; !
-    
+
 

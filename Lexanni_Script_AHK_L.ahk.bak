@@ -33,17 +33,27 @@ Menu, Tray, Add, Открыть папку скрипта, OpenScriptDir
 Menu, Tray, Add, Открыть скрипт в SciTE, OpenToSciTE   ; создаем свои меню значка в трее
 Menu, Tray, Add, Вызвать таблицу символов, RunSymbolsTable
 Menu, Tray, Add, Опции, LayoutOptions
-Menu, Tray, Add, Запуск KG-Assistant, RunKGA
-Menu, Tray, Add, Определялка скан-кодов, RunKeycodesAhk
-Menu, Tray, Add, Скрипт набора vk..-кодами, RunTypingKeycodes
-Menu, Tray, Add, Скрипт MouseGetPos, RunMouseGetPos
+
+Menu, OtherScripts, Add, Запуск KG-Assistant, RunKGA
+Menu, OtherScripts, Add, Определялка скан-кодов, RunKeycodesAhk
+Menu, OtherScripts, Add, Скрипт набора vk..-кодами, RunTypingKeycodes
+Menu, OtherScripts, Add, Скрипт MouseGetPos, RunMouseGetPos
+Menu, Tray, Add, Другие скрипты, :OtherScripts
+
+Menu, FastLocations, Add, Network Connections, OpenNetworkConnections
+Menu, FastLocations, Add, Control Panel, OpenControlPanel
+Menu, FastLocations, Add, Printers, OpenPrinters
+Menu, Tray, Add, Locations, :FastLocations
+
 Menu, Tray, Add, KeyHistory, ShowKeyHistory
 Menu, Tray, Add,
-Menu, Tray, Add, Выключать NUM-слой после пробела, NumAutoOffOnOff
-Menu, Tray, Add, Мой F-ряд, FRowOnOff
-Menu, Tray, Add, Звук стрелками, SoundKey
+
+;~ Menu, Tray, Add, Выключать NUM-слой после пробела, NumAutoOffOnOff
+;~ Menu, Tray, Add, Мой F-ряд, FRowOnOff
+;~ Menu, Tray, Add, Звук стрелками, SoundKey
 Menu, Tray, Add, Включить раскладку MSREK, MSREKOnOff
 ;~ Menu, Tray, Add, Танковый режим, TankMode
+
 Menu, Tray, Add, Приостановить скрипт, ScriptPaused
 Menu, Tray, Add,
 Menu, Tray, Add, Перезапуск, ReloadScript
@@ -75,26 +85,39 @@ if StartSuspended
     Menu, Tray, Check, Приостановить скрипт
 }
 
-if NumAutoOff
-{
-    Menu, Tray, Check, Выключать NUM-слой после пробела
-} else {
-    Menu, Tray, UnCheck, Выключать NUM-слой после пробела
-}
+;~ if NumAutoOff
+;~ {
+    ;~ Menu, Tray, Check, Выключать NUM-слой после пробела
+;~ } else {
+    ;~ Menu, Tray, UnCheck, Выключать NUM-слой после пробела
+;~ }
 
-if FRow
-{
-    Menu, Tray, Check, Мой F-ряд
-} else {
-    Menu, Tray, UnCheck, Мой F-ряд
-}
+;~ if FRow
+;~ {
+    ;~ Menu, Tray, Check, Мой F-ряд
+;~ } else {
+    ;~ Menu, Tray, UnCheck, Мой F-ряд
+;~ }
 
-if SoundKeyOn
-{
-    Menu, Tray, Check, Звук стрелками
-} else {
-    Menu, Tray, UnCheck, Звук стрелками
-}
+;~ if SoundKeyOn
+;~ {
+    ;~ Menu, Tray, Check, Звук стрелками
+;~ } else {
+    ;~ Menu, Tray, UnCheck, Звук стрелками
+;~ }
+
+return
+
+OpenNetworkConnections:
+    Run, ::{7007acc7-3202-11d1-aad2-00805fc1270e}
+return
+
+OpenControlPanel:
+    Run, ::{21ec2020-3aea-1069-a2dd-08002b30309d}
+return
+
+OpenPrinters:
+    Run, ::{2227a280-3aea-1069-a2de-08002b30309d}
 return
 
 ;----- Окно настроек ----->
@@ -109,7 +132,7 @@ Gui, Margin, 15, 15
 ;~ Gui, add, Checkbox, Checked%ShortBS% vShortBS, Короткий BackSpace
 Gui, add, Checkbox, Checked%StartSuspended% vStartSuspended, Запускать приостановленным
 IfExist, %A_Startup%\%A_ScriptName% - Ярлык.lnk
-{    
+{
     CheckAutoLoad := true
 }else{
     CheckAutoLoad := false
@@ -206,13 +229,13 @@ return
 ExitScript:
 ;~ ScrollLock & F11::
 Suspend, Permit ; чтобы не отключалась после команды Suspend
-ExitApp 
-return 
+ExitApp
+return
 
 ReloadScript:
 ;~ ScrollLock & F12::
 Suspend, Permit
-Reload 
+Reload
 return
 
 ShowKeyHistory:
@@ -282,7 +305,7 @@ If !NumOn
       ; TrayTip,, MSREK Off
       Menu, Tray, UnCheck, Включить раскладку MSREK
     }
-} else { 
+} else {
     NumOn := false
     If EngLayoutOn
     {
@@ -339,7 +362,7 @@ If NumOn := !NumOn
   Menu, Tray, Icon, ico\NumOn.ico
   Menu, Tray, Tip, Lexanni Script AutoHotkey_L `nСкрипт переназначающий клавиши `nNumOn
 } else {
- 
+
   If EngLayoutOn
   {
       KState := 2
@@ -350,7 +373,7 @@ If NumOn := !NumOn
     ;~ {
       ;~ Menu, Tray, Icon, ico\TgOn.ico
       ;~ Menu, Tray, Tip, Lexanni Script AutoHotkey_L `nСкрипт переназначающий клавиши `nTgOn
-    ;~ 
+    ;~
   else
     {
       KState := 1
@@ -360,7 +383,7 @@ If NumOn := !NumOn
 }
 return
 
-;--------- Блок меню ---------------< 
+;--------- Блок меню ---------------<
 
 *RAlt::
     ;~ *vkDC::
@@ -370,37 +393,38 @@ return
     gosub, AltOnOff
 return
 
-*vk32::
-    ;~ *vkDC::
-    gosub, AltOnOff
-    KeyWait, vk32
-    ; KeyWait, vkDC
-    gosub, AltOnOff
-return
+*vk31::Send, ^+{vk55}   ; Ctrl+Shift+U
+*vk32::Send, ^+{vk52}   ; Ctrl+Shift+R
 
-*vk31::
-    tmp := KState
-    KState := 7
-    KeyWait, vk31
-    KState := tmp
-return 
+;~ *vk32::
+    ;~ gosub, AltOnOff
+    ;~ KeyWait, vk32
+    ;~ gosub, AltOnOff
+;~ return
+
+;~ *vk31::
+    ;~ tmp := KState
+    ;~ KState := 7
+    ;~ KeyWait, vk31
+    ;~ KState := tmp
+;~ return
 
 ; SoundKey
-#If SoundKeyOn
-    F11::Volume_Up
-    F10::Volume_Down
-#If
+;~ #If SoundKeyOn
+    ;~ F11::Volume_Up
+    ;~ F10::Volume_Down
+;~ #If
 
 ; =============================================================
 ; Переключение рабочих столов по дополнительным клавишам мыши ;
 ; =============================================================
-    XButton1::SendEvent, #{Tab}  ; 4-я клавиша    
-    XButton2::                   ; 5-я клавиша
-        if (val1 := !val1)
-            SendEvent, #^{Right}
-        else
-            SendEvent, #^{Left}
-    return
+    ;~ XButton1::SendEvent, #{Tab}  ; 4-я клавиша
+    ;~ XButton2::                   ; 5-я клавиша
+        ;~ if (val1 := !val1)
+            ;~ SendEvent, #^{Right}
+        ;~ else
+            ;~ SendEvent, #^{Left}
+    ;~ return
 
 ;==============================================================
 
@@ -417,7 +441,7 @@ RWin Up::SendEvent, {Delete Up}
         ShiftOn := true
         KeyWait, vkDE
         ShiftOn := false
-    return 
+    return
     *CapsLock::     ; работает как Shift
         ShiftOn := true
         ;~ Send, {LShift Down}
@@ -440,7 +464,7 @@ Down Up::SendEvent, {RCtrl Up}
     SLOn := false
 return
 
-*Left::             ; модификатор для "второго" символного слоя (клавиша Влево)
+*Left::             ; модификатор для "второго" символьного слоя (клавиша Влево)
     LeftOn := true
     KeyWait, Left
     LeftOn := false
@@ -458,7 +482,7 @@ return
     ;~ gosub, AltOnOff
 ;~ return
 
-; -------------------------------------этот блок для "сброса" запущенного залипания 
+; -------------------------------------этот блок для "сброса" запущенного залипания
 *vkBF::return ; точка в ЙЦУКЕН
 *vkE2::return ;клавиша <>
 ~BackSpace::return
@@ -519,10 +543,9 @@ return
 ;~ #Include ВЛАЕЗ.ahk
 #Include MSREK_Sticky.ahk
 ;~ #Include Typography.ahk
-#Include RightKeyLayer.ahk
-#Include LeftKeyLayer.ahk
+;~ #Include RightKeyLayer.ahk
+;~ #Include LeftKeyLayer.ahk
 #Include NavigationLayer.ahk
-
 
 ; ----------------------------------------------------
 
@@ -536,12 +559,12 @@ return
 ; 67699721  Eng, 68748313  Rus
 
 ;-------- Нетронутый блок с форума ----------->
-F11:: ;выдает идентификатор локали 
+F11:: ;выдает идентификатор локали
   SetFormat, Integer, H
   WinGet, WinID,, A
   ThreadID:=DllCall("GetWindowThreadProcessId", UInt, WinID, UInt, 0)
   InputLocaleID:=DllCall("GetKeyboardLayout", UInt, ThreadID, UInt)
   MsgBox, %InputLocaleID%
 Return
-;---------------------------------------------< 
+;---------------------------------------------<
 */

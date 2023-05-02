@@ -8,8 +8,8 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-baseurl = http://fincs.ahk4.net/scite4ahk
-isPortable := FileExist("..\$PORTABLE")
+baseurl := "https://www.autohotkey.com/scite4ahk"
+isPortable := InStr(FileExist("..\user"), "D")
 today := SubStr(A_Now, 1, 8)
 if !isPortable
 	LocalSciTEPath = %A_MyDocuments%\AutoHotkey\SciTE
@@ -36,6 +36,10 @@ if isSilent
 		ExitApp
 }
 
+curVer := GetSciTEVersion()
+if !curVer
+	ExitApp
+
 f = %A_Temp%\%A_TickCount%.txt
 if !isSilent
 	ToolTip, Fetching update info...
@@ -57,7 +61,15 @@ try
 	ExitApp
 }
 
-FileRead, curVer, ..\$VER
+; Guard against allegedly 'user friendly' proxies that block HTTP access to unauthorized websites
+if RegExMatch(latestVer, "[^0-9\.\-]") || RegExMatch(latestRev, "\D")
+{
+	; Bad luck, try again tomorrow
+	FileDelete, %LocalSciTEPath%\$LASTUPDATE
+	FileAppend, %today%, %LocalSciTEPath%\$LASTUPDATE
+	ExitApp
+}
+
 if (curVer < latestVer)
 {
 	MsgBox, 36, SciTE4AutoHotkey Updater,
@@ -258,11 +270,15 @@ class Update
 	}
 }
 
+GetSciTEVersion()
+{
+	o := GetSciTEInstance()
+	return o ? o.Version : ""
+}
+
 CloseSciTE()
 {
-	ComObjError(0)
-	o := ComObjActive("SciTE4AHK.Application")
-	ComObjError(1)
+	o := GetSciTEInstance()
 	if !o
 		return
 	hWnd := o.SciTEHandle

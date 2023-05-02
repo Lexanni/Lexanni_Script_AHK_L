@@ -61,7 +61,7 @@
         Send, {Space}{Space}
     return
 ; | P |    
-    vk50::Send, {u+03c9}    ; $
+    vk50::Send, {u+03c9}    ; ω
 ;~ ; | А |
     ;~ vk41::Send, {u+00b0}    ; °
 

@@ -20,8 +20,8 @@
 ^vkBF::Send, ^+{Right}      ; | / |
 ^vk4D::Send, ^+{Left}       ; | M |
 
-^vk50::SendEvent, {WheelUp}
-^vkBA::SendEvent, {WheelDown}
+;~ ^vk50::SendEvent, {WheelUp}
+;~ ^vkBA::SendEvent, {WheelDown}
 
 ^vkBD::Send, _              ; | - |
   

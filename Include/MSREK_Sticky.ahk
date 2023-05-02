@@ -3,7 +3,7 @@
 ;~ #UseHook, On
 ;~ #InputLevel 1
 #If (KState = 2) and ((A_PriorHotkey = "*CapsLock") or (A_PriorHotkey = "*vkDE") or ShiftOn)
-    vkDD::Send, {u+0023}    ; # 
+    vkDD::Send, {u+0023}    ; #
     vk51::Send, V
     vk57::Send, F
     vk45::Send, Y
@@ -45,7 +45,7 @@
     ;~ vk4A::Send, {u+00f6}   ; ö
     ;~ vkBA::Send, {u+00fc}   ; ü
     vk43::Send, {u+0251}    ; ɑ
-    LShift::Send, {u+03b2}  ; β    
+    LShift::Send, {u+03b2}  ; β
     ;~ vk53::Send, {u+00df}   ; ß
     ;~ vkBC::Send, {u+005c}   ; \
     ;~ vkBE::Send, {u+002f}    ; /
@@ -70,13 +70,14 @@
     ;~ vk54::Send, ä    ; @; | T |
     vk54::Send, ^{vkBF}    ; @; | T |
     ;~ vk59::Send, ö   ; &; | Y |
-    vk59::Send, {U+003B}  ; ";" ; | Y |
+    ;~ vk59::Send, {U+003B}  ; ";" ; | Y |
+    vk59::Send, ^+{vk55}
     vk55::Send, i
     vk49::Send, d
     vk4F::Send, b
     vk50::Send, w
     vkDB::Send, x
-    vkDD::Send, {u+0023} ; # 
+    vkDD::Send, {u+0023} ; #
     vk41::Send, m
     vk53::Send, s
     vk44::Send, r

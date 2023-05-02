@@ -10,10 +10,10 @@
  ^vk55::Send, {Home}		; | U |
  ^vk4f::Send, {End}		    ; | O |
  ;~ $vkDC::Send, {u+005c}{u+0030} ; \0	; | \ |
- 
+
  ^vk48::Send, ^{Left}        ; | J |
  ^vkBA::Send, ^{Right}       ; | ; |
- 
+
 
 ^vkBC::Send, +{Tab}     ; \ ; | , |
 ^vkBE::Send, {Tab}      ; / ; | . |
@@ -24,12 +24,12 @@
 ;~ ^vkBA::SendEvent, {WheelDown}
 
 ^vkBD::Send, _              ; | - |
-  
+
 #UseHook
 
 
 
 ; | , |
-    ;~ vkBC::Send, {u+005c}   ; \ 
+    ;~ vkBC::Send, {u+005c}   ; \
 ; | . |
     ;~ vkBE::Send, {u+002f}    ; /
