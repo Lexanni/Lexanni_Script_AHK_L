@@ -7,14 +7,14 @@
     vk57::Send, {u+002a}    ; [ W ] -> *
     vk45::Send, {u+003c}    ; [ E ] -> <
     vk52::Send, {u+003e}    ; [ R ] -> >
-    vk54::return            ; [ T ]
+    vk54::Send, {u+0040}    ; [ T ] -> @
     vk59::Send, {U+0025}    ; [ Y ] -> %
     vk55::Send, {U+005e}    ; [ U ] -> ^
     vk49::Send, {U+0028}    ; [ I ] -> (
     vk4F::Send, {U+0029}    ; [ O ] -> )
     vk50::Send, {u+0024}    ; [ P ] -> $
     vkDB::Send, {u+0026}    ; [ [ ] -> &
-    vkDD::Send, {u+0023}    ; [ ] ] -> #
+    vkDD::Send, {u+007e}    ; [ ] ] -> ~
 
     vk41::Send, {u+003d}    ; [ A ] -> =
     vk53::Send, {u+002d}    ; [ S ] -> -

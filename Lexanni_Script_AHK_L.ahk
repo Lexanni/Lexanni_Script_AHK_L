@@ -13,7 +13,7 @@ SetTitleMatchMode, RegEx
 SetWorkingDir %A_ScriptDir%
 #Include %A_ScriptDir%\Include\
 
-baseTip := "Lexanni_Script_AHK v2.0`nСкрипт переназначающий клавиши"
+baseTip := "Lexanni_Script_AHK v2.1`nСкрипт переназначающий клавиши"
 
 state := Object()
 state.Layout  := "EN"
@@ -154,7 +154,7 @@ return
 
 ScriptPaused:
 Insert::
->^RShift::
+RAlt & RShift::
     Suspend
     UpdateTrayState()
 return
