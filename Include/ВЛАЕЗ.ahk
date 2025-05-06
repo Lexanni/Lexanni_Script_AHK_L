@@ -1,151 +1,85 @@
-﻿;---- Экспериментальная русская раскладка ---
-#UseHook, On
-#If (KState = 1) ; !StickyKeys and !EngLayoutOn and !NumOn 
-; | Tab |
-    Tab::Send, ф
-    <+Tab::Send, Ф
-; | Й |
-    vk51::Send, ж
-    <+vk51::Send, Ж
-; | Ц |
-    vk57::Send, б
-    <+vk57::Send, Б
-; | У |
-    vk45::Send, м
-    <+vk45::Send, М
-; | К |
-    vk52::Send, ы
-    <+vk52::Send, Ы
-; | Е |
-    vk54::Send, э
-    <+vk54::Send, Э
-; | Н |
-    vk59::Send, {u+044a} ; ъ | Юникод потому, что по-другому глючит
-    <+vk59::Send, {u+042a} ; Ъ
-    ;~ vk59::Send, {u+2026}    ; …
-    ;~ vk59::Send, {u+007e}   ; ~
-    ;~ <+vk59::Send, {u+0023}    ; #
-; | Г |
-    vk55::Send, ю
-    <+vk55::Send, Ю
-; | Ш |
-    ;~ vk49::Send, ы
-    ;~ <+vk49::Send, Ы
-    vk49::Send, {u+044c} ; ь
-    ;~ <+vk49::Send, {u+044a} ; ъ
-    <+vk49::Send, {u+042c} ; Ь
-    ;~ <+>+vk49::Send, {u+044a} ; Ъ
-; | Щ |
-    vk4F::Send, г
-    <+vk4F::Send, Г
-; | З |
-    vk50::Send, п
-    <+vk50::Send, П
-; | Х |
-    vkDB::Send, й
-    <+vkDB::Send, Й
-; | Ъ |
-    ;~ vkDD::Send, ф
-    ;~ <+vkDD::Send, Ф
-    ;~ vkDD::Send, {u+2026}    ; …
-    ;~ +vkDD::Send, {u+007e}   ; ~
-    ;~ <+vkDD::Send, {u+0023}    ; #
-; | Ф |
-    vk41::Send, в
-    <+vk41::Send, В
-; | Ы |
-    vk53::Send, л
-    <+vk53::Send, Л
-    ;~ >+vk53::Send, {u+00df}   ; ß
-; | В |
-    vk44::Send, а
-    <+vk44::Send, А
-; | А |
-    vk46::Send, е
-    <+vk46::Send, Е
-; | П |
-    vk47::Send, з
-    <+vk47::Send, З
-; | Р |
-    vk48::Send, щ
-    <+vk48::Send, Щ
-; | О |
-    vk4A::Send, и
-    <+vk4A::Send, И
-    ;~ >+vk4A::Send, {u+00f6}   ; ö
-    ;~ >+<+vk4A::Send, {u+00d6}   ; Ö
-; | Л |
-    vk4B::Send, о
-    <+vk4B::Send, О
-; | Д |
-    vk4C::Send, т
-    <+vk4C::Send, Т
-; | Ж |
-    vkBA::Send, к
-    <+vkBA::Send, К
-    ;~ >+vkBA::Send, {u+00fc}   ; ü
-    ;~ >+<+vkBA::Send, {u+00dc}   ; Ü
-; | Э |
-    ;~ vkDE::Send, {u+002f}    ; /
-    ;~ <+vkDE::Send, {u+005c}   ; \
-    ;~ *vkDE::SendEvent, {RShift Down}
-    ;~ *vkDE Up::SendEvent, {RShift Up}
-; | \ |
-    ;~ vkDC::Send, ф
-	;~ <+vkDC::Send, Ф
-; | < |
-	vkE2::Send, ц
-	<+vkE2::Send, Ц
-    
-;~ #If LongLShift 
-    ;~ *$vkE2::SendEvent, {LShift Down} ;клавиша <> ; 
-    ;~ vkE2 Up::SendEvent, {LShift Up}
-    ;~ #InputLevel 1
-    ;~ $LShift::Send, ф
-    ;~ <+$LShift::Send, Ф
-    ;~ #InputLevel 0
-;~ #If
+﻿/*
+*
+*    ВЛАЕЗ layout
+*
+*/
 
+#If (state.Layout = "RU") and (state.ShiftOn or (state.StickyShiftOn and (A_PriorHotkey = "*CapsLock" or A_PriorHotkey = "*vkDE")))
+    vk51::Send, Ж           ; [ Q ]
+    vk57::Send, Б           ; [ W ]
+    vk45::Send, М           ; [ E ]
+    vk52::Send, Ы           ; [ R ]
+    vk54::Send, Э           ; [ T ]
+    vk59::Send, {u+042a}    ; [ Y ] -> Ъ (Unicode because sometimes not works)
+    vk55::Send, Ю           ; [ U ]
+    vk49::Send, Ь           ; [ I ]
+    vk4F::Send, Г           ; [ O ]
+    vk50::Send, П           ; [ P ]
+    vkDB::Send, Й           ; [ [ ]
+    vkDD::Send, Ф           ; [ ] ]
 
-; | Я |
-    vk5A::Send, ч
-    <+vk5A::Send, Ч
-; | Ч |
-    vk58::Send, у
-    <+vk58::Send, У
-    ;~ vk58::Send, {u+044c} ; ь
-    ;~ <+vk58::Send, {u+044a} ; ъ
-    ;~ >+vk58::Send, {u+042c} ; Ь
-    ;~ <+>+vk58::Send, {u+044a} ; Ъ
-; | С |
-    vk43::Send, н
-    <+vk43::Send, Н
-; | М |
-    vk56::Send, д
-    <+vk56::Send, Д
-; | И |
-    ;~ vk42::Send, {u+25cb} ; ○
-    ;~ vk42::Send, -
-    *vk42::SendEvent, {RShift Down}
-    *vk42 up::SendEvent, {RShift Up}
-    ;~ <+vk42::Send, {u+25a0} ; ■
-    ;~ <+vk42::Send, _
-    ;~ <+vk42::Send, _
-; | Т |
-    vk4E::Send, р
-    <+vk4E::Send, Р
-; | Ь |
-    vk4D::Send, с
-    <+vk4D::Send, С
-; | Б |
-    vkBC::Send, я
-    <+vkBC::Send, Я
-; | Ю |
-    vkBE::Send, ш
-    <+vkBE::Send, Ш
- ; | . |
-    vkBF::Send, х
-    <+vkBF::Send, Х
-;~ #InputLevel 0
+    vk41::Send, В           ; [ A ]
+    vk53::Send, Л           ; [ S ]
+    vk44::Send, А           ; [ D ]
+    vk46::Send, Е           ; [ F ]
+    vk47::Send, З           ; [ G ]
+    vk48::Send, Щ           ; [ H ]
+    vk4A::Send, И           ; [ J ]
+    vk4B::Send, О           ; [ K ]
+    vk4C::Send, Т           ; [ L ]
+    vkBA::Send, К           ; [ ; ]
+    ; vkDE                  ; [ ' ] -> ShiftOn modifier
+    vkDC::return            ; [ \ ]
+
+    vkE2::Send, Ц           ; [ \ ] – EU key betwin LShift and Z
+    vk5A::Send, Ч           ; [ Z ]
+    vk58::Send, У           ; [ X ]
+    vk43::Send, Н           ; [ C ]
+    vk56::Send, Д           ; [ V ]
+    ; vk42                  ; [ B ] -> modifier for the Symbols layer
+    vk4E::Send, Р           ; [ N ]
+    vk4D::Send, С           ; [ M ]
+    vkBC::Send, Я           ; [ , ]
+    vkBE::Send, Ш           ; [ . ]
+    vkBF::Send, Х           ; [ / ]
 #If
-#UseHook, Off
+
+#If (state.Layout = "RU")
+    vk51::Send, ж           ; [ Q ]
+    vk57::Send, б           ; [ W ]
+    vk45::Send, м           ; [ E ]
+    vk52::Send, ы           ; [ R ]
+    vk54::Send, э           ; [ T ]
+    vk59::Send, {u+044a}    ; [ Y ] -> ъ (Unicode because sometimes not works)
+    vk55::Send, ю           ; [ U ]
+    vk49::Send, ь           ; [ I ]
+    vk4F::Send, г           ; [ O ]
+    vk50::Send, п           ; [ P ]
+    vkDB::Send, й           ; [ [ ]
+    vkDD::Send, ф           ; [ ] ] -> #
+
+    vk41::Send, в           ; [ A ]
+    vk53::Send, л           ; [ S ]
+    vk44::Send, а           ; [ D ]
+    vk46::Send, е           ; [ F ]
+    vk47::Send, з           ; [ G ]
+    vk48::Send, щ           ; [ H ]
+    vk4A::Send, и           ; [ J ]
+    vk4B::Send, о           ; [ K ]
+    vk4C::Send, т           ; [ L ]
+    vkBA::Send, к           ; [ ; ]
+    ; vkDE                  ; [ ' ] -> ShiftOn modifier
+    vkDC::return            ; [ \ ]
+
+    vkE2::Send, ц           ; [ \ ] – EU key betwin LShift and Z
+    vk5A::Send, ч           ; [ Z ]
+    vk58::Send, у           ; [ X ]
+    vk43::Send, н           ; [ C ]
+    vk56::Send, д           ; [ V ]
+    ; vk42                  ; [ B ] -> modifier for the Symbols layer
+    vk4E::Send, р           ; [ N ]
+    vk4D::Send, с           ; [ M ]
+    vkBC::Send, я           ; [ , ]
+    vkBE::Send, ш           ; [ . ]
+    vkBF::Send, х           ; [ / ]
+#If

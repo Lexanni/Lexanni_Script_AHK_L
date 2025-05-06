@@ -1,6 +1,6 @@
-/*
+﻿/*
 *
-*    Navigation Layer
+*    Navigation Layer Exp
 *
 */
 
@@ -11,11 +11,11 @@
     vk52::return            ; [ R ]
     vk54::return            ; [ T ]
     vk59::return            ; [ Y ]
-    vk55::Send, ^{Left}     ; [ U ]
+    vk55::Send, {Backspace} ; [ U ]
     vk49::Send, {Up}        ; [ I ]
-    vk4F::Send, ^{Right}    ; [ O ]
-    vk50::Send, {Backspace} ; [ P ]
-    vkDB::Send, {Del}       ; [ [ ]
+    vk4F::Send, {Down}      ; [ O ]
+    vk50::Send, {Del}       ; [ P ]
+    vkDB::return            ; [ [ ]
     vkDD::return            ; [ ] ]
 
     vk41::return            ; [ A ]
@@ -23,15 +23,15 @@
     vk44::return            ; [ D ]
     vk46::return            ; [ F ]
     vk47::return            ; [ G ]
-    vk48::Send, {Home}      ; [ H ]
-    vk4A::Send, {Left}      ; [ J ]
-    vk4B::Send, {Down}      ; [ K ]
+    vk48::return            ; [ H ]
+    vk4A::Send, ^{Left}     ; [ J ]
+    vk4B::Send, {Left}      ; [ K ]
     vk4C::Send, {Right}     ; [ L ]
-    vkBA::Send, {End}       ; [ ; ]
+    vkBA::Send, ^{Right}    ; [ ; ]
     ; vkDE                  ; [ ' ] -> ShiftOn modifier
     vkDC::return            ; [ \ ]
 
-    vkE2::return            ; [ \ ] - EU key betwin LShift and Z
+    vkE2::return            ; [ \ ] – EU key betwin LShift and Z
     vk5A::return            ; [ Z ]
     vk58::return            ; [ X ]
     vk43::return            ; [ C ]
