@@ -29,7 +29,7 @@
     *vk4C::Send, 6           ; [ L ]
     *vkBA::Send, 0           ; [ ; ]
     ; vkDE                   ; [ ' ] -> ShiftOn modifier
-    *vkDC::return            ; [ \ ]
+    ; vkDC::return           ; [ \ ] -> Control
 
     *vkE2::return            ; [ \ ] – EU key betwin LShift and Z
     *vk5A::Send, 3           ; [ Z ]

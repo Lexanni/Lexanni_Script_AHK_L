@@ -13,7 +13,7 @@ SetTitleMatchMode, RegEx
 SetWorkingDir %A_ScriptDir%
 #Include %A_ScriptDir%\Include\
 
-baseTip := "Lexanni_Script_AHK v2.1`nСкрипт переназначающий клавиши"
+baseTip := "Lexanni_Script_AHK v2.2`nСкрипт переназначающий клавиши"
 
 state := Object()
 state.Layout  := "EN"
@@ -21,6 +21,7 @@ state.ShiftOn := false
 state.NumOn   := false
 state.SymOn   := false
 state.NavOn   := false
+state.CtrlOn  := false
 state.StickyShiftOn := true
 state.StickySymOn   := true
 
@@ -31,7 +32,6 @@ Menu, Tray, Icon, ico\ScriptOn.ico, , 1
 Menu, Tray, Tip, %baseTip%
 Menu, Tray, Add, О скрипте, About
 Menu, Tray, Add, Открыть папку скрипта, OpenScriptDir
-Menu, Tray, Add, Открыть скрипт в SciTE, OpenToSciTE   ; создаем свои меню значка в трее
 Menu, Tray, Add, Вызвать таблицу символов, RunSymbolsTable
 Menu, Tray, Add, Опции, LayoutOptions
 
@@ -59,7 +59,6 @@ Menu, Tray, Add, Перезапуск, ReloadScript
 Menu, Tray, Add, Выход, ExitScript
 
 Menu, Tray, Icon, О скрипте, Shell32.dll, 278
-Menu, Tray, Icon, Открыть скрипт в SciTE, SciTE\SciTE.exe
 Menu, Tray, Icon, Вызвать таблицу символов, %A_WinDir%\system32\charmap.exe
 Menu, Tray, Icon, Перезапуск, Shell32.dll, 239
 Menu, Tray, Icon, Опции, dsuiext.dll, 36
@@ -159,11 +158,6 @@ RAlt & RShift::
     UpdateTrayState()
 return
 
-OpenToSciTE:
-    Suspend, Permit
-    Run SciTE\SciTE.exe "%A_ScriptFullPath%"
-return
-
 OpenScriptDir:
     Run %A_ScriptDir%
 return
@@ -243,6 +237,20 @@ return
 
 LAlt & Tab::AltTab
 
+; --- Ctrl layer --------------
+
+*vkC0::
+    state.CtrlOn := true
+    KeyWait, vkC0
+    state.CtrlOn := false
+return
+
+*vkDC::
+    state.CtrlOn := true
+    KeyWait, vkDC
+    state.CtrlOn := false
+return
+
 ; --- Shift layer -------------
 
 *vkDE:: ; [ ' ]
@@ -267,9 +275,9 @@ return
 
 ; --- Navigation layer --------
 
-*vkC0::
+*vk31::
     state.NavOn := true
-    KeyWait, vkC0
+    KeyWait, vk31
     state.NavOn := false
 return
 
@@ -284,8 +292,9 @@ $*Space::Send, {Space}  ; for disable Modifier+Space shortcuts
 
 ; --- Includes ----------------
 
-#Include NavigationLayer.ahk
-;~ #Include NavigationLayerExp.ahk
+;~ #Include NavigationLayer.ahk
+#Include CtrlLayer.ahk
+#Include NavigationLayerExp.ahk
 #Include Symbols.ahk
 #Include Num.ahk
 #Include ВЛАЕЗ.ahk

@@ -29,7 +29,7 @@
     vk4C::Send, Т           ; [ L ]
     vkBA::Send, К           ; [ ; ]
     ; vkDE                  ; [ ' ] -> ShiftOn modifier
-    vkDC::return            ; [ \ ]
+    ; vkDC::return          ; [ \ ] -> Control
 
     vkE2::Send, Ц           ; [ \ ] – EU key betwin LShift and Z
     vk5A::Send, Ч           ; [ Z ]
@@ -69,7 +69,7 @@
     vk4C::Send, т           ; [ L ]
     vkBA::Send, к           ; [ ; ]
     ; vkDE                  ; [ ' ] -> ShiftOn modifier
-    vkDC::return            ; [ \ ]
+    ; vkDC::return          ; [ \ ] -> Control
 
     vkE2::Send, ц           ; [ \ ] – EU key betwin LShift and Z
     vk5A::Send, ч           ; [ Z ]

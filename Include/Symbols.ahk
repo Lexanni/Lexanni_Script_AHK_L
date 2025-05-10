@@ -43,8 +43,8 @@
 #If
 
 #If state.ShiftOn or (state.StickyShiftOn and (A_PriorHotkey = "*CapsLock" or A_PriorHotkey = "*vkDE"))
-    ;~ vk31::Send,           ; [ 1 ]
-    ;~ vk32::Send,           ; [ 2 ]
+    ;~ vk31::Send,           ; [ 1 ] -> activates Navigation layer
+    *vk32::Send,  {U+2013}   ; [ 2 ] -> – (En-Dash)
     *vk33::Send, {U+0029}    ; [ 3 ] -> (
     *vk34::Send, {U+0029}    ; [ 4 ] -> )
     *vk35::Send, {U+003B}    ; [ 5 ] -> ;
@@ -58,8 +58,8 @@
 #If
 
 #UseHook On
-    ;~ vk31::Send,           ; [ 1 ]
-    ;~ vk32::Send,           ; [ 2 ]
+    ;~ vk31::Send,           ; [ 1 ] -> activates Navigation layer
+    *vk32::Send, {U+002D}    ; [ 2 ] -> -
     *vk33::Send, {U+0022}    ; [ 3 ] -> "
     *vk34::Send, {U+002E}    ; [ 4 ] -> .
     *vk35::Send, {U+002C}    ; [ 5 ] -> ,
