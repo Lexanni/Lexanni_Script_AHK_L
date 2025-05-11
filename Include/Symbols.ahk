@@ -4,24 +4,24 @@
     vkBD::Send, {U+005f}    ; [ - ] -> _
 
     vk51::Send, {u+002a}    ; [ Q ] -> *
-    vk57::Send, {u+002a}    ; [ W ] -> *
+    vk57::Send, {u+002f}    ; [ W ] -> /
     vk45::Send, {u+003c}    ; [ E ] -> <
     vk52::Send, {u+003e}    ; [ R ] -> >
     vk54::Send, {u+0040}    ; [ T ] -> @
-    vk59::Send, {U+0025}    ; [ Y ] -> %
-    vk55::Send, {U+005e}    ; [ U ] -> ^
-    vk49::Send, {U+0028}    ; [ I ] -> (
-    vk4F::Send, {U+0029}    ; [ O ] -> )
-    vk50::Send, {u+0024}    ; [ P ] -> $
-    vkDB::Send, {u+0026}    ; [ [ ] -> &
+    vk59::Send, {u+0025}    ; [ Y ] -> %
+    vk55::Send, {u+005e}    ; [ U ] -> ^
+    vk49::Send, {u+0028}    ; [ I ] -> (
+    vk4F::Send, {u+0029}    ; [ O ] -> )
+    vk50::Send, {u+002f}    ; [ P ] -> /
+    vkDB::Send, {u+002a}    ; [ [ ] -> *
     vkDD::Send, {u+007e}    ; [ ] ] -> ~
 
-    vk41::Send, {u+003d}    ; [ A ] -> =
-    vk53::Send, {u+002d}    ; [ S ] -> -
-    vk44::Send, {u+002b}    ; [ D ] -> +
-    vk46::Send, {u+0021}    ; [ F ] -> !
-    vk47::return            ; [ G ]
-    vk48::return            ; [ H ]
+    vk41::Send, {u+005e}    ; [ A ] -> ^
+    vk53::Send, {u+0024}    ; [ S ] -> $
+    vk44::Send, {u+0025}    ; [ D ] -> %
+    vk46::Send, {u+0026}    ; [ F ] -> &
+    vk47::Send, {u+002b}    ; [ G ] -> +
+    vk48::Send, {u+002b}    ; [ H ] -> +
     vk4A::Send, {u+007b}    ; [ J ] -> {
     vk4B::Send, {u+005b}    ; [ K ] -> [
     vk4C::Send, {u+005d}    ; [ L ] -> ]
@@ -29,17 +29,17 @@
     ; vkDE                  ; [ ' ] -> ShiftOn modifier
     vkDC::Send, {u+007c}    ; [ \ ] -> |
 
-    vkE2::return            ; [ \ ] – EU key betwin LShift and Z
+    vkE2::Send, {u+003d}    ; [ <> ] –> =
     vk5A::Send, {u+005c}    ; [ Z ] -> \
     vk58::Send, {u+002f}    ; [ X ] -> /
-    vk43::Send, {u+002a}    ; [ C ] -> *
-    vk56::return            ; [ V ]
+    vk43::Send, {u+007c}    ; [ C ] -> |
+    vk56::Send, {u+002d}    ; [ V ] -> -
     ; vk42                  ; [ B ] -> modifier for the Symbols layer
-    vk4E::Send, {u+03C0}    ; [ N ] -> π
-    vk4D::Send, {u+0027}    ; [ M ] -> '
+    vk4E::Send, {u+002d}    ; [ N ] -> -
+    vk4D::Send, {u+007c}    ; [ M ] -> |
     vkBC::Send, {u+005c}    ; [ , ] -> \
     vkBE::Send, {u+002f}    ; [ . ] -> /
-    vkBF::Send, {u+007c}    ; [ / ] -> |
+    vkBF::Send, {u+003d}    ; [ / ] –> =
 #If
 
 #If state.ShiftOn or (state.StickyShiftOn and (A_PriorHotkey = "*CapsLock" or A_PriorHotkey = "*vkDE"))
