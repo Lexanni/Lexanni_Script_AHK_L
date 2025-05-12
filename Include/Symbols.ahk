@@ -9,7 +9,7 @@
     vk52::Send, {u+003e}    ; [ R ] -> >
     vk54::Send, {u+0040}    ; [ T ] -> @
     vk59::Send, {u+0025}    ; [ Y ] -> %
-    vk55::Send, {u+005e}    ; [ U ] -> ^
+    vk55::Send, {u+0026}    ; [ U ] -> &
     vk49::Send, {u+0028}    ; [ I ] -> (
     vk4F::Send, {u+0029}    ; [ O ] -> )
     vk50::Send, {u+002f}    ; [ P ] -> /
