@@ -13,7 +13,7 @@ SetTitleMatchMode, RegEx
 SetWorkingDir %A_ScriptDir%
 #Include %A_ScriptDir%\Include\
 
-baseTip := "Lexanni_Script_AHK v2.4`nСкрипт переназначающий клавиши"
+baseTip := "Lexanni_Script_AHK v2.5`nСкрипт переназначающий клавиши"
 
 state := Object()
 state.Layout  := "EN"
@@ -284,6 +284,10 @@ return
 ; --- Other -------------------
 ~BackSpace::return      ; for reset sticky modifiers
 $*Space::Send, {Space}  ; for disable Modifier+Space shortcuts
+
+#If state.ShiftOn or (state.StickyShiftOn and (A_PriorHotkey = "*CapsLock" or A_PriorHotkey = "*vkDE"))
+    Enter::Send, +{Enter}
+#If
 
 ; --- mouse wheel emulation ---
 
